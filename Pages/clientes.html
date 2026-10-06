@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Prestige</title>
+
+    <!-- Link de bootstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- icono de el sistema -->
+    <link rel="shortcut icon" href="../img/Eventos Prestige Icono.png" type="image/x-icon">
+</head>
+
+<body class="bg-light">
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-body-light bg-success-subtle">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/Eventos Prestige Icono.png" alt="Bootstrap" width="60" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-5 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="../index.html">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="clientes.html">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="salones.html">Salones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario -->
+    <main class="container py-5">
+        <section class="align-baseline mb-5">
+            <h1 class="fw-bold">Clientes</h1>
+            <h3>Bienvenido a nuestros eventos ☜(ﾟヮﾟ☜)</h3>
+        </section>
+
+        <section class="card shadow-sm mb-5">
+            <div class="card-header bg-info text-white">
+                <h2 class="h5 mb-0">Clientes</h2>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Formulario para agregar los clientes -->
+                <form id="frmClients">
+
+                    <!-- id de la persona para el momento de actualizar -->
+                    <input type="hidden" id="idClient">
+
+                    <div class="form-group my-3">
+                        <label for="txtCliente" class="form-label">Nombre del Cliente:</label>
+                        <input type="text" id="txtCliente" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtApellidoCliente" class="form-label">Apellido del Cliente:</label>
+                        <input type="text" id="txtApellidoCliente" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtTelefono" class="form-label">Teléfono:</label>
+                        <input type="tel" id="txtTelefono" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtEmail" class="form-label">Email:</label>
+                        <input type="email" id="txtEmail" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtDireccion" class="form-label">Dirección</label>
+                        <input type="text" id="txtDireccion" class="form-control">
+                    </div>
+
+                    <button type="submit" id="btnGuardarEvento" class="btn btn-info">Guardar Cliente</button>
+                    <button type="button" id="btnCancelarEvento" class="btn btn-secondary d-none">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Tabla -->
+        <section class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h2 class="h6 mb-0">Tabla de Clientes</h2>
+            </div>
+
+            <div class="card-body">
+                <div class="alert d-none" id="mensaje" role="alert"></div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Teléfono</th>
+                                    <th>Email</th>
+                                    <th>Dirección</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaSalones">
+                                <!-- aqui se cargaran los Salones -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link de js de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Link de Controller -->
+    <script type="module" src="JS/Controller/clientesController.js"></script>
+</body>
+
+</html>

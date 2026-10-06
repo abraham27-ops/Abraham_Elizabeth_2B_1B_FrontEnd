@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Prestige</title>
+
+    <!-- Link de bootstrap Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- icono de el sistema -->
+    <link rel="shortcut icon" href="img/Eventos Prestige Icono.png" type="image/x-icon">
+</head>
+
+<body class="bg-light">
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-body-light bg-success-subtle">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/Eventos Prestige Icono.png" alt="Bootstrap" width="60" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-5 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="index.html">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="Pages/clientes.html">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-5" aria-current="page" href="Pages/salones.html">Salones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario -->
+    <main class="container py-5">
+        <section class="align-baseline mb-5">
+            <h1 class="fw-bold">Eventos</h1>
+            <h3>Ven y registra tus eventos con nosotros!!!!!</h3>
+        </section>
+
+        <section class="card shadow-sm mb-5">
+            <div class="card-header bg-info text-white">
+                <h2 class="h5 mb-0">Eventos</h2>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Formulario para agregar los eventos -->
+                <form id="frmEvents">
+
+                    <!-- id de el evento para el momento de actualizar -->
+                    <input type="hidden" id="idEvents">
+
+                    <div class="form-group my-3">
+                        <label for="txtEvento" class="form-label">Nombre del Evento:</label>
+                        <input type="text" id="txtEvento" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtFecha" class="form-label">Fecha del Evento:</label>
+                        <input type="datetime" id="txtFecha" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtCantidadPersonas" class="form-label">Cantidad de Personas:</label>
+                        <input type="number" id="txtCantidadPersonas" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="txtCantidadHoras" class="form-label">Cantidad de Horas:</label>
+                        <input type="time" id="txtCantidadHoras" class="form-control" required>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="selectClientes" class="form-label">Clientes:</label>
+
+                        <select id="selectClientes" class="form-control" required>
+                            <option value="">Selecciona una categoria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group my-3">
+                        <label for="selectSalones" class="form-label">Salones:</label>
+
+                        <select id="selectSalones" class="form-control" required>
+                            <option value="">Selecciona un Salón:</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btnGuardarEvento" class="btn btn-info">Guardar Evento</button>
+                    <button type="button" id="btnCancelarEvento" class="btn btn-secondary d-none">Cancelar
+                        Evento</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Tabla -->
+        <section class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h2 class="h6 mb-0">Tabla de Eventos</h2>
+            </div>
+
+            <div class="card-body">
+                <div class="alert d-none" id="mensaje" role="alert">
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>id</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Salón</th>
+                                    <th>Fecha</th>
+                                    <th>Cantidad de Personas</th>
+                                    <th>Horas Reservadas</th>
+                                    <th>Total a pagar:</th>
+                                    <th>Estado:</th>
+                                    <th>acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaEventos">
+                                <!-- aqui se cargaran los eventos -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link de js de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Link de Controller -->
+    <script type="module" src="JS/Controller/eventosController.js"></script>
+</body>
+
+</html>
